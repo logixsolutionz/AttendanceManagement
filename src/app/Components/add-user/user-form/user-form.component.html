@@ -1,0 +1,22 @@
+<div class="container-fluid p-5">
+
+    <div class="text-center mb-2  d-flex justify-content-between border-bottom "><p class="dialogueTitle">ADD USER CREDENTIALS</p><mat-icon class="cursorPointer" (click)="closeDialogue()">cancel</mat-icon></div>
+
+
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Login Name</mat-label>
+        <input matInput [(ngModel)]="loginName" type="text" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Login Name</mat-label>
+        <input matInput [(ngModel)]="password" type="password" >
+    </mat-form-field>
+
+
+    <div class="text-center">
+        <button class="btn me-2 text-uppercase btn-success">{{actionbtn}}</button>
+        <button class="btn text-uppercase btn-danger" (click)="reset()">Reset</button>
+    </div>
+
+</div>

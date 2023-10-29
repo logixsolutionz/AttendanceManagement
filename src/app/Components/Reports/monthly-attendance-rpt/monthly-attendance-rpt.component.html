@@ -1,0 +1,234 @@
+<div class="row  p-2">
+
+
+
+    <mat-form-field class="col-lg-8" appearance="outline">
+        <mat-label>To Date</mat-label>
+        <input matInput type="text" readonly="true" [(ngModel)]="Month" [matDatepicker]="eDate">
+        <mat-datepicker-toggle matSuffix [for]="eDate"></mat-datepicker-toggle>
+        <mat-datepicker #eDate></mat-datepicker>
+    </mat-form-field>
+
+
+    <div class="col-lg-3 d-flex text-end">
+        <button class=" btn w-50 btn-success me-2 btn-rpt" (click)="getReport()">Get Report</button>
+
+        <button class=" btn btn-primary btn-rpt" (click)="print()"> Print</button>
+    </div>
+
+
+    <hr>
+
+    <div id="printDiv">
+
+        <!-------------------------    Top Logo Section -------------------->
+                <div class="hide">
+                 <div class="text-center border-bottom d-flex justify-content-center pb-1">
+
+                     <span class="mt-3">
+
+
+                         <h1 class="cmpnyName">{{companyName}}</h1>
+                         <p class="rptTitle" style="margin-top: -20px;">Monthly Attendance Report</p>
+                         <p  style="margin-top: -20px;font-size: 25px;">Month: {{Month | date:'MM - yyyy'}}</p>
+                     </span>
+
+
+
+                 </div>
+                </div>
+
+             <div class="pt-4 container-fluid justify-content-center">
+                 <table class="table attTable ">
+                     <thead>
+                         <th style="width: 280px;">Detail</th>
+                         <!-- <th *ngFor="let item of totalDays">{{item}}</th> -->
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                        <th>17</th>
+                        <th>18</th>
+                        <th>19</th>
+                        <th>20</th>
+                        <th>2</th>
+                        <th>21</th>
+                        <th>23</th>
+                        <th>24</th>
+                        <th>25</th>
+                        <th>26</th>
+                        <th>27</th>
+                        <th>28</th>
+                        <th *ngIf="totalDays >= 29">29</th>
+                        <th *ngIf="totalDays >= 30">30</th>
+                        <th *ngIf="totalDays == 31">31</th>
+
+
+                     </thead>
+                     <tbody>
+
+                        <!-- <tr>
+                            <td></td>
+                            <td  >
+                                <span class="presentIcon">&#9745;</span>
+                                
+                            </td>
+                            <td><span class="absentIcon">&#9746;</span></td>
+                            <td colspan="29"></td>
+                        </tr> -->
+
+
+
+
+
+                        <tr *ngFor="let item of AttList index as index">
+
+                                <td class="text-start">{{item.employeeID}} - {{item.employeeName}} </td>
+                                <!-- ({{item.cnic}}) -->
+                                <td >
+                                    <span class="presentIcon" *ngIf="item.d1 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d1 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon" *ngIf="item.d2 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d2 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d3 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d3 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d4 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d4 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d5 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d5 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d6 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d6 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d7 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d7 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d8 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d8 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d9 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d9 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d10 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d10 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d11 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d11 == false" >&#9746;</span>
+                                </td>
+
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d12 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d12 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d13 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d13 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d14 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d14 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d15 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d15 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d16 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d16 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d17 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d17 == false" >&#9746;</span>
+                                </td>
+
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d18 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d18 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d19 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d19 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d20 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d20 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d21 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d21 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d22 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d22 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d23 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d23 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d24 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d24 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d25 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d25 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d26 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d26 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d27 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d27 == false" >&#9746;</span>
+                                </td>
+                                <td >
+                                    <span class="presentIcon"*ngIf="item.d28 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d28 == false" >&#9746;</span>
+                                </td>
+                                <td *ngIf="totalDays >= 29" >
+                                    <span class="presentIcon"*ngIf="item.d29 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d29 == false" >&#9746;</span>
+                                </td>
+                                <td *ngIf="totalDays >= 30">
+                                    <span class="presentIcon"*ngIf="item.d30 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d30 == false" >&#9746;</span>
+                                </td>
+                                <td *ngIf="totalDays == 31">
+                                    <span class="presentIcon"*ngIf="item.d31 == true" >&#9745;</span>
+                                    <span class="absentIcon" *ngIf="item.d31 == false" >&#9746;</span>
+                                </td>
+                        </tr>
+                     </tbody>
+                 </table>
+
+             </div>
+         </div>
+</div>
+
+

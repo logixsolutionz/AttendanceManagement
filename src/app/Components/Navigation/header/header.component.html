@@ -1,0 +1,66 @@
+<mat-toolbar  class="bg-grey">  
+    <mat-toolbar-row class="justify-content-between d-flex border-bottom">
+       <div style="display: flex;" class="justify-content-left"> 
+        <!-- <button class="button" mat-icon-button (click)="toggleSideBar()"><mat-icon>{{Menu}}</mat-icon> </button> -->
+        
+        <div class="border-end me-2 d-flex flex-column justify-content-center pe-2  ">
+            <img src="../../../../assets/Images/logo-logix.png" height="25" width="120" >
+        </div>
+        
+         <!--<h4 class="m-3 text-muted" style="font-family: Arial, Helvetica, sans-serif;letter-spacing:5px;">
+            {{title}}
+        </h4> -->
+        <a class="list-itm" routerLink="./empprof" routerLinkActive="active">Employee Profile</a>
+
+        <!-- <a class="list-itm" [hidden]="true" routerLink="./addUser" routerLinkActive="active">AddUser</a> -->
+    
+    
+    
+        <div class="dropdown cursorPointer mt-2 ">
+          <a class="list-itm">
+            Reports<mat-icon class="sideicon mb-1">arrow_drop_down</mat-icon></a>
+          <div class="dropdown-content">
+            <a class="list-itm" routerLink="./loe" routerLinkActive="active">List of Employee</a>
+            <a class="list-itm" routerLink="./arptedw" routerLinkActive="active">Attendance Rpt (EmployeeWise)</a>
+            <a class="list-itm" routerLink="./arpttdw" routerLinkActive="active">Attendance Rpt (TypeWise)</a>
+            <a class="list-itm" routerLink="./arptmw" routerLinkActive="active">Attendance Rpt (Monthly)</a>
+            <a class="list-itm" routerLink="./arptd" routerLinkActive="active">Attendance Rpt (Daily)</a>
+            
+           
+       
+          </div>
+        </div>
+    
+    
+
+
+
+    </div>
+    <div class="d-flex pt-3">
+        <!-- <img src="../../../../assets/Images/BGHotel.png" height="30" width="30" class=" me-2" > -->
+        <h3>WELCOME  <mat-icon class="pt-1" >person</mat-icon> {{UserName}}</h3>
+       
+
+    </div>
+    
+        <div class="justify-content-around">
+            <ul class="d-flex pt-3 ml stylnone">
+                <!-- <li >
+                    <h3>{{UserName}}</h3>  <mat-icon >person</mat-icon> 
+                </li> -->
+                <li >
+                    
+                    <div mat-icon-button style="cursor: pointer;font-size: 15px; border-bottom: 1px Solid rgb(196, 196, 196);box-shadow: 12px 2px 5px 2px rgb(198, 198, 199);" class="d-flex" (click)="logout()">
+
+                        LOGOUT <mat-icon  class="">power_settings_new</mat-icon>
+                    </div>
+                </li>
+                
+            </ul>  
+        </div>
+    </mat-toolbar-row>
+    <!-- <mat-toolbar-row>
+        <app-top-navbar></app-top-navbar>
+    </mat-toolbar-row> -->
+</mat-toolbar>
+
